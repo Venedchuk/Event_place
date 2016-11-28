@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use backend\models\PlaceEvent;
 use backend\models\Event;
 use backend\models\EventSearch;
 use yii\web\Controller;
@@ -64,8 +65,15 @@ class EventController extends Controller
     public function actionCreate()
     {
         $model = new Event();
+		$place_event = new  PlaceEvent();
+
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+			$place_event ->event_id = $model->id;
+			$place_event ->place_id = $model->places;
+			$place_event -> save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
