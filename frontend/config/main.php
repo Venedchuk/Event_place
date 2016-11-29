@@ -12,6 +12,13 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+		'view' => [
+			'theme' => [
+				'pathMap' => [
+					'@app/views' => '@backend/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+				],
+			],
+		],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
@@ -36,14 +43,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
