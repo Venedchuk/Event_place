@@ -32,6 +32,7 @@ class Event extends \yii\db\ActiveRecord
         return [
             [['date'], 'safe'],
             [['event_name'], 'string', 'max' => 255],
+
         ];
     }
 
@@ -44,6 +45,7 @@ class Event extends \yii\db\ActiveRecord
             'id' => 'ID',
             'event_name' => 'Event Name',
             'date' => 'Date',
+			//'place' => 'Place',
         ];
     }
 
