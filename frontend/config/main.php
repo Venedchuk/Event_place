@@ -10,8 +10,21 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+	'modules' => [
+		'debug' => [
+			'class' => 'yii\debug\Module',
+			'allowedIPs' => ['*']
+		],],
     'controllerNamespace' => 'frontend\controllers',
-    'components' => [
+	'components' => [
+		'view' => [
+			'theme' => [
+				'pathMap' => [
+					'@app/views' => '@backend/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+				],
+			],
+		],
+
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
@@ -36,14 +49,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
