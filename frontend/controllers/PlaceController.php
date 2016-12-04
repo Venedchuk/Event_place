@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use Yii;
+
 use backend\models\Place;
 use backend\models\PlaceSearch;
 use yii\web\Controller;
